@@ -9,7 +9,7 @@ const app = express()
 
 // Breads
 const breadsController = require('./controllers/breads_controller.js')
-app.use('/breads', breadsController)
+
 
 // MIDDLEWARE
 app.use(express.static('public'))
@@ -21,6 +21,7 @@ app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 // MIDDLEWARE
 app.use(methodOverride('_method'))
+app.use('/breads', breadsController)
 
 // ROUTES
 app.get('/', (req, res) => {
